@@ -12,7 +12,7 @@ const Nav = () => {
         </Link>
         <div className="ml-3 mr-3">
           <Link to="/checkout">
-            <span type="button" className="cart">
+            <span className="cart">
               <i className="fas fa-shopping-cart"></i>
               <span className="badge badge-danger">3</span>
             </span>
