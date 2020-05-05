@@ -77,7 +77,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <p class="mb-1 text-center">&copy; 2017-2018 Company Name</p>
+        <p className="mb-1 text-center">&copy; 2017-2018 Company Name</p>
       </div>
     </div>
   );
