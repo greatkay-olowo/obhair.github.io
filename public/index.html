@@ -48,8 +48,11 @@
       crossorigin="anonymous"
     ></script>
     <script>
-      $(".navbar-nav>li>a").on("click", function () {
-        $(".navbar-collapse").collapse("hide");
+      $(function () {
+        var navMain = $(".navbar");
+        navMain.on("click", "a", null, function () {
+          navMain.collapse("hide");
+        });
       });
     </script>
     <!-- <script src="./bootstrap/bootstrap.min.js"></script> -->

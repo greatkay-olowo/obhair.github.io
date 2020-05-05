@@ -3,7 +3,7 @@ import { NavLink, Link } from "react-router-dom";
 
 const Nav = () => {
   return (
-    <div className="sticky-top">
+    <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-sm ">
         <Link className="navbar-brand" to="/">
           <strong className="bold large">
@@ -109,7 +109,7 @@ const Nav = () => {
           />
         </div>
       </div>
-    </div>
+    </>
   );
 };
 const style = {
