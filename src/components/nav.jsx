@@ -5,14 +5,11 @@ const Nav = () => {
   return (
     <div className="sticky-top">
       <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-sm ">
-        <a
-          className="navbar-brand"
-          href="https://greatkay-olowo.github.io/obhair/"
-        >
+        <Link className="navbar-brand" to="/">
           <strong className="bold large">
             <span className="bold text-warning">OB</span>Hair
           </strong>
-        </a>
+        </Link>
         <div className="ml-3 mr-3">
           <Link to="/checkout">
             <span type="button" className="cart">

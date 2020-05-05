@@ -12,23 +12,10 @@ function App() {
     <main className="App" style={style}>
       <Nav />
       <Switch>
-        <Route
-          path="https://greatkay-olowo.github.io/obhair/"
-          component={Home}
-          exact
-        />
-        <Route
-          path="https://greatkay-olowo.github.io/obhair/category/:id"
-          component={Category}
-        />
-        <Route
-          path="https://greatkay-olowo.github.io/obhair/product/:id"
-          component={Product}
-        />
-        <Route
-          path="https://greatkay-olowo.github.io/obhair/checkout"
-          component={Checkout}
-        />
+        <Route path="/" component={Home} exact />
+        <Route path="/category/:id" component={Category} />
+        <Route path="/product/:id" component={Product} />
+        <Route path="/checkout" component={Checkout} />
       </Switch>
       <Footer />
     </main>
