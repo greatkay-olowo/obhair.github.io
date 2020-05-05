@@ -69,9 +69,7 @@ const Home = () => {
       <div className="card-margin">
         <div className="card shadow custom-card">
           <div className="card-body ">
-            <h1 className="header align-middle custom-header">
-              New Items we jsut received today
-            </h1>
+            <h1 className="header align-middle custom-header">New Items</h1>
 
             <div className="scrolling-wrapper">
               {array.map((item) => (
