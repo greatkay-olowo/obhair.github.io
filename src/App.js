@@ -17,9 +17,18 @@ function App() {
           component={Home}
           exact
         />
-        <Route path="/category/:id" component={Category} />
-        <Route path="/product/:id" component={Product} />
-        <Route path="/checkout" component={Checkout} />
+        <Route
+          path="https://greatkay-olowo.github.io/obhair/category/:id"
+          component={Category}
+        />
+        <Route
+          path="https://greatkay-olowo.github.io/obhair/product/:id"
+          component={Product}
+        />
+        <Route
+          path="https://greatkay-olowo.github.io/obhair/checkout"
+          component={Checkout}
+        />
       </Switch>
       <Footer />
     </main>
