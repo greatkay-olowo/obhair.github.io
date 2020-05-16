@@ -92,6 +92,7 @@ const Category = ({ match }) => {
                 name="Straight Hair we jsut received today Straight Hair we jsut received today Straight Hair we jsut received today "
                 price="200"
                 URL={URL}
+                category={header}
               />
             ))}
           </div>

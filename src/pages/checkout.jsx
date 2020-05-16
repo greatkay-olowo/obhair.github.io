@@ -16,34 +16,67 @@ const Checkout = () => {
                 <div>
                   <h6 className="my-0">Product name</h6>
                   <small className="text-muted ">Brief description</small>
+                  <br />
+                  <small className="text-muted ">13 pieces</small> <br />
+                  <button
+                    className="btn btn-danger btn-sm"
+                    style={{ fontSize: "10px" }}
+                  >
+                    Remove
+                  </button>
                 </div>
                 <span className="text-muted">&#xa3;12</span>
               </li>
               <li className="list-group-item d-flex justify-content-between lh-condensed">
                 <div>
-                  <h6 className="my-0">Second product</h6>
-                  <small className="text-muted ">
-                    Brief description Lorem ipsum dolor sit amet consectetur,
-                    adipisicing elit. Dolores doloribus vero itaque facere illum
-                    eaque ex accusantium cum ea perspiciatis blanditiis,
-                    incidunt corporis veniam eos, laudantium ad, fugit rem quos?
-                  </small>
+                  <h6 className="my-0">Product name</h6>
+                  <small className="text-muted ">Brief description</small>
+                  <br />
+                  <small className="text-muted ">13 pieces</small> <br />
+                  <button
+                    className="btn btn-danger btn-sm"
+                    style={{ fontSize: "10px" }}
+                  >
+                    Remove
+                  </button>
                 </div>
-                <span className="text-muted">&#xa3;8</span>
-              </li>
+                <span className="text-muted">&#xa3;12</span>
+              </li>{" "}
               <li className="list-group-item d-flex justify-content-between lh-condensed">
                 <div>
-                  <h6 className="my-0">Third item</h6>
+                  <h6 className="my-0">Product name</h6>
                   <small className="text-muted ">Brief description</small>
+                  <br />
+                  <small className="text-muted ">13 pieces</small> <br />
+                  <button
+                    className="btn btn-danger btn-sm"
+                    style={{ fontSize: "10px" }}
+                  >
+                    Remove
+                  </button>
                 </div>
-                <span className="text-muted">&#xa3;5</span>
-              </li>
-
-              <li className="list-group-item d-flex justify-content-between">
-                <span>Total (&#xa3;)</span>
-                <strong>&#xa3;20</strong>
+                <span className="text-muted">&#xa3;12</span>
+              </li>{" "}
+              <li className="list-group-item d-flex justify-content-between lh-condensed">
+                <div>
+                  <h6 className="my-0">Product name</h6>
+                  <small className="text-muted ">Brief description</small>
+                  <br />
+                  <small className="text-muted ">13 pieces</small> <br />
+                  <button
+                    className="btn btn-danger btn-sm"
+                    style={{ fontSize: "10px" }}
+                  >
+                    Remove
+                  </button>
+                </div>
+                <span className="text-muted">&#xa3;12</span>
               </li>
             </ul>
+            <li className="list-group-item d-flex justify-content-between">
+              <span>Total (&#xa3;)</span>
+              <strong>&#xa3;20</strong>
+            </li>
           </div>
           <div className="col-md-8 order-md-1">
             <h4 className="mb-3">Billing address</h4>

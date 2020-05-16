@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const SmallerProductcard = ({ URL, name, price, pURL }) => {
+const SmallerProductcard = ({ URL, name, price, category }) => {
   return (
     <div className="mb-1 p-1 product-divs" style={style.borderTop}>
       <Link to={"/product/111"} style={style.flexItem}>
@@ -16,6 +16,7 @@ const SmallerProductcard = ({ URL, name, price, pURL }) => {
                 {name}
               </p>
               <p style={style.price}>${price}</p>
+              <p style={style.category}>{category}</p>
               <button className="btn btn-primary btn-sm border-none mb-2">
                 Buy Now
               </button>
@@ -62,6 +63,9 @@ const style = {
   flexItem: {
     flex: "auto",
     padding: "10px",
+  },
+  category: {
+    fontSize: "12px",
   },
 };
 

@@ -53,25 +53,34 @@ const Product = () => {
                   />
                 </div>
 
+                <div className="input-group mb-3">
+                  <div className="input-group-prepend">
+                    <span className="input-group-text" id="basic-addon1">
+                      Length
+                    </span>
+                  </div>
+                  <select
+                    name=""
+                    id=""
+                    type="number"
+                    className="form-control"
+                    //  value={quantity}
+                    //  onChange={(e) => setQuantity(e.target.value)}
+                  >
+                    <option value="">12"</option>
+                    <option value="">10"</option>
+                    <option value="">8"</option>
+                  </select>
+                </div>
                 <Link to="/checkout">
                   <button className="btn btn-primary round-pill col-12">
                     Add to Cart
                   </button>
                 </Link>
                 <hr sclassName="pb-3" />
-                <p style={style.header}>PRODUCT DETAILS</p>
-                <p style={style.info}>
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                  Voluptates ea, illo explicabo quia dolore assumenda corporis
-                  ipsum neque aspernatur placeat unde possimus ullam magnam?
-                  Inventore facere sapiente mollitia molestias id? Lorem ipsum
-                  dolor sit amet, consectetur adipisicing elit. Quasi sequi
-                  deleniti corrupti iure, repellendus officiis rerum earum,
-                  reprehenderit porro unde doloremque possimus tempore
-                  voluptatibus recusandae perferendis maxime nemo ipsam quaerat.
-                </p>
+
                 <ul>
-                  <p style={style.header}>SPECIFICATIONS</p>
+                  <p style={style.specsHeader}>SPECIFICATIONS</p>
                   <li style={style.li}>
                     SKU: <span style={style.liSpan}>FA203HB1IVIEMNAFAMZ</span>
                   </li>
@@ -109,7 +118,7 @@ const style = {
   imgContainer: {},
   story: {},
   header: {
-    fontSize: "16px",
+    fontSize: "24px",
     fontWeight: "bold",
     margin: "0",
     padding: "0",
@@ -136,6 +145,11 @@ const style = {
   },
   number: {
     width: "5rem",
+  },
+  specsHeader: {
+    fontSize: "18px",
+    fontWeight: "bold",
+    marginBottom: "12px",
   },
 };
 

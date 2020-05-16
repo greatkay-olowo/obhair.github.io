@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./productCard.css";
 
-const Productcard = ({ URL, name, price, pURL }) => {
+const Productcard = ({ URL, name, price, category }) => {
   return (
     <div className="mb-1  product-divs" style={style.bTop}>
       <Link to={"/product/111"} style={style.item}>
@@ -16,6 +16,7 @@ const Productcard = ({ URL, name, price, pURL }) => {
                 {name}
               </p>
               <p style={style.price}>${price}</p>
+              <p style={style.category}>{category}</p>
               <button className="btn btn-primary btn-sm border-none mb-2">
                 Buy Now
               </button>
@@ -32,7 +33,7 @@ const style = {
     margin: "0",
     borderRadius: "0px ",
     width: "12rem ",
-    height: "17rem",
+    height: "20rem",
     border: "none",
     padding: "10px",
   },
@@ -49,9 +50,9 @@ const style = {
   productname: {
     fontSize: "0.8",
     marginBottom: "0.2rem",
+    fontWeight: "bold",
   },
   price: {
-    fontWeight: "bold",
     fontSize: "1rem",
     marginBottom: "0.2rem",
   },
@@ -62,6 +63,9 @@ const style = {
   },
   item: {
     padding: "5px",
+  },
+  category: {
+    fontSize: "12px",
   },
 };
 

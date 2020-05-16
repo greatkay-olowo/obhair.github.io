@@ -1,5 +1,5 @@
-import React from "react";
-import { Switch, Route } from "react-router-dom";
+import React, { useState } from "react";
+import { Switch, Route, Redirect } from "react-router-dom";
 import Nav from "./components/nav";
 import Home from "./pages/home";
 import Category from "./pages/category";
