@@ -15,67 +15,15 @@ const Category = ({ match }) => {
       ? "Eye Lash"
       : "Glue";
 
-  const count = [
-    1,
-    2,
-    3,
-    4,
-    5,
-    6,
-    7,
-    8,
-    9,
-    1,
-    2,
-    3,
-    4,
-    6,
-    7,
-    8,
-    9,
-    1,
-    2,
-    3,
-    4,
-    5,
-    6,
-    7,
-    8,
-    9,
-    1,
-    2,
-    3,
-    4,
-    6,
-    7,
-    8,
-    9,
-    1,
-    2,
-    3,
-    4,
-    5,
-    6,
-    7,
-    8,
-    9,
-    1,
-    2,
-    3,
-    4,
-    6,
-    7,
-    8,
-    9,
-  ];
+  const count = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   return (
     <div>
       <Layout>
         <div
-          class="container p-2 shadow"
+          className="container p-2 shadow"
           style={{ backgroundColor: "#FFF", borderRadius: "6px" }}
         >
-          <div class="container">
+          <div className="container">
             <h2
               className="p-0 m-0 p-1 text-center"
               style={{ fontSize: "1.2rem" }}

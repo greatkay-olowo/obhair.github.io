@@ -77,7 +77,7 @@ const Product = () => {
                     Add to Cart
                   </button>
                 </Link>
-                <hr sclassName="pb-3" />
+                <hr className="pb-3" />
 
                 <ul>
                   <p style={style.specsHeader}>SPECIFICATIONS</p>

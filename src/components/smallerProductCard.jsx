@@ -11,7 +11,7 @@ const SmallerProductcard = ({ URL, name, price, category }) => {
           </div>
           <div className="card-body p-0 m-0">
             <hr className="m-2" />
-            <p className="card-text">
+            <div className="card-text">
               <p style={style.productname} className="text-wrap">
                 {name}
               </p>
@@ -20,7 +20,7 @@ const SmallerProductcard = ({ URL, name, price, category }) => {
               <button className="btn btn-primary btn-sm border-none mb-2">
                 Buy Now
               </button>
-            </p>
+            </div>
           </div>
         </div>
       </Link>

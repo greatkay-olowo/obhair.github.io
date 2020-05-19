@@ -57,8 +57,11 @@ const Nav = () => {
             </li>
             <li className="nav-item">
               <NavLink
-                className="nav-link custom-nav-link"
-                activeStyle={style.active}
+                className={"nav-link custom-nav-link"}
+                activeStyle={{
+                  borderBottomColor: "2px solid #007bff",
+                  color: "#007bff",
+                }}
                 to="/category/Eye-Lash"
                 exact
               >
@@ -67,8 +70,11 @@ const Nav = () => {
             </li>
             <li className="nav-item">
               <NavLink
-                className="nav-link custom-nav-link"
-                activeStyle={style.active}
+                className={"nav-link custom-nav-link"}
+                activeStyle={{
+                  borderBottomColor: "2px solid #007bff",
+                  color: "#007bff",
+                }}
                 to="/category/Glue"
                 exact
               >
