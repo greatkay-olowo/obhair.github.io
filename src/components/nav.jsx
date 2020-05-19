@@ -76,6 +76,47 @@ const Nav = () => {
               </NavLink>
             </li>
           </ul>
+          <ul className="navbar-nav">
+            <Link className="nav-link custom-nav-link" to="/register">
+              Register
+            </Link>
+            <Link className="nav-link custom-nav-link" to="/login">
+              Login
+            </Link>
+          </ul>
+          <ul className="navbar-nav">
+            <li
+              className="nav-item dropdown"
+              style={{ margin: "0 10px", fontWeight: "bold" }}
+            >
+              <Link
+                className="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Kayode
+              </Link>
+              <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+                <Link className="dropdown-item" to="/userprofile/22">
+                  Profile
+                </Link>
+                <Link className="dropdown-item" to="/trackorders/22">
+                  Track Orders
+                </Link>
+                <Link className="dropdown-item" to="#">
+                  Purchase History
+                </Link>
+                <div className="dropdown-divider"></div>
+                <Link className="dropdown-item" to="#">
+                  Logout
+                </Link>
+              </div>
+            </li>
+          </ul>
 
           {/* on large screens */}
           <div className="d-none d-lg-block">
