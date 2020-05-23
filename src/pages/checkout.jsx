@@ -19,7 +19,7 @@ const Checkout = () => {
                   <br />
                   <small className="text-muted ">13 pieces</small> <br />
                   <button
-                    className="btn btn-danger btn-sm"
+                    className="btn btn-secondary btn-sm"
                     style={{ fontSize: "10px" }}
                   >
                     Remove
@@ -34,7 +34,7 @@ const Checkout = () => {
                   <br />
                   <small className="text-muted ">13 pieces</small> <br />
                   <button
-                    className="btn btn-danger btn-sm"
+                    className="btn btn-secondary btn-sm"
                     style={{ fontSize: "10px" }}
                   >
                     Remove
@@ -49,7 +49,7 @@ const Checkout = () => {
                   <br />
                   <small className="text-muted ">13 pieces</small> <br />
                   <button
-                    className="btn btn-danger btn-sm"
+                    className="btn btn-secondary btn-sm"
                     style={{ fontSize: "10px" }}
                   >
                     Remove
@@ -64,7 +64,7 @@ const Checkout = () => {
                   <br />
                   <small className="text-muted ">13 pieces</small> <br />
                   <button
-                    className="btn btn-danger btn-sm"
+                    className="btn btn-secondary btn-sm"
                     style={{ fontSize: "10px" }}
                   >
                     Remove

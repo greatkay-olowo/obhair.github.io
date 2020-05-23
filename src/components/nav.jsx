@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink, Link } from "react-router-dom";
 
-const Nav = () => {
+const Nav = ({ match }) => {
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-sm ">
@@ -13,8 +13,8 @@ const Nav = () => {
         <div className="ml-3 mr-3">
           <Link to="/checkout">
             <span className="cart">
-              <i className="fas fa-shopping-cart"></i>
-              <span className="badge badge-danger">3</span>
+              <i className="fas fa-shopping-cart"></i> <span>Cart</span>
+              <span className="badge">3</span>
             </span>
           </Link>
         </div>
@@ -39,7 +39,7 @@ const Nav = () => {
                   borderBottomColor: "2px solid #007bff",
                   color: "#007bff",
                 }}
-                to="/category/Straight-Hair"
+                to="/straighthair"
                 exact
               >
                 Straight Hair
@@ -49,7 +49,7 @@ const Nav = () => {
               <NavLink
                 className="nav-link custom-nav-link"
                 activeStyle={{ color: "#007bff" }}
-                to="/category/Curly-Hair"
+                to="/curlyhair"
                 exact
               >
                 Curly Hair
@@ -62,7 +62,7 @@ const Nav = () => {
                   borderBottomColor: "2px solid #007bff",
                   color: "#007bff",
                 }}
-                to="/category/Eye-Lash"
+                to="/eyelash"
                 exact
               >
                 Eye Lash
@@ -75,7 +75,7 @@ const Nav = () => {
                   borderBottomColor: "2px solid #007bff",
                   color: "#007bff",
                 }}
-                to="/category/Glue"
+                to="glue"
                 exact
               >
                 Glue
@@ -110,11 +110,8 @@ const Nav = () => {
                 <Link className="dropdown-item" to="/userprofile/22">
                   Profile
                 </Link>
-                <Link className="dropdown-item" to="/trackorders/22">
-                  Track Orders
-                </Link>
-                <Link className="dropdown-item" to="#">
-                  Purchase History
+                <Link className="dropdown-item" to="/orders">
+                  Orders
                 </Link>
                 <div className="dropdown-divider"></div>
                 <Link className="dropdown-item" to="#">

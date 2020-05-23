@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const SmallerProductcard = ({ URL, name, price, category }) => {
+const SmallerProductcard = ({ img, name, price, category, id }) => {
   return (
     <div className="mb-1 p-1 product-divs" style={style.borderTop}>
-      <Link to={"/product/111"} style={style.flexItem}>
+      <Link to={`/product/${id}`} style={style.flexItem}>
         <div className="card" style={style.card}>
           <div className="card-img-top">
-            <img src={URL} alt="..." style={style.cardImg} />
+            <img src={img} alt="..." style={style.cardImg} />
           </div>
           <div className="card-body p-0 m-0">
             <hr className="m-2" />
