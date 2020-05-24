@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Table } from "reactable";
 
 const DataTable = () => {
@@ -15,7 +16,11 @@ const DataTable = () => {
             Description: "new description that shouldn't match filter",
             Tag: "old",
           },
-          { State: "Alaska", Description: "bacon", Tag: "renewed" },
+          {
+            State: "Alaska",
+            Description: "bacon",
+            Tag: <Link to="/admin">Home</Link>,
+          },
         ]}
         sortable={["State", "Tag"]}
         defaultSort={{ column: "State", direction: "desc" }}
