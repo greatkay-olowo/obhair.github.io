@@ -14,14 +14,14 @@ const Admin = () => {
           </a>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" to="/admin/customers">
+          <a className="nav-link" href="/admin/cuhrefmers">
             Customers
-          </Link>
+          </a>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" to="/admin/products">
+          <a className="nav-link" href="/admin/products">
             Products
-          </Link>
+          </a>
         </li>
       </ul>
       <Switch>
