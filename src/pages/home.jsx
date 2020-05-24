@@ -9,7 +9,7 @@ const Home = () => {
 
   return (
     <Layout>
-      <p>Hello Kayode</p>
+      <p>Hello Obi</p>
       {/* new items */}
       <div className="card-margin">
         <div className="card shadow custom-card">
