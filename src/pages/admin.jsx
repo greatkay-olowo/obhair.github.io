@@ -9,9 +9,9 @@ const Admin = () => {
     <div className="container">
       <ul className="nav justify-content-center">
         <li className="nav-item">
-          <Link className="nav-link active" to="/admin">
+          <a className="nav-link active" href="/admin">
             Orders
-          </Link>
+          </a>
         </li>
         <li className="nav-item">
           <Link className="nav-link" to="/admin/customers">
