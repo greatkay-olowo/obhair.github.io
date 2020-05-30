@@ -1,30 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { Table } from "reactable";
 
-const DataTable = () => {
+const DataTable = ({ data, sort1, sort2, sort3 }) => {
   return (
     <div>
       <Table
         className="table"
         id="table"
-        data={[
-          { State: "New York", Description: "this is some text", Tag: "new" },
-          { State: "New Mexico", Description: "lorem ipsum", Tag: "old" },
-          {
-            State: "Colorado",
-            Description: "new description that shouldn't match filter",
-            Tag: "old",
-          },
-          {
-            State: "Alaska",
-            Description: "bacon",
-            Tag: <Link to="/admin">Home</Link>,
-          },
-        ]}
-        sortable={["State", "Tag"]}
-        defaultSort={{ column: "State", direction: "desc" }}
-        filterable={["State", "Tag"]}
+        data={data}
+        sortable={[sort1, sort2, sort3]}
+        defaultSort={{ column: sort1, direction: "desc" }}
+        filterable={[sort1, sort2]}
       />
       , {document.getElementById("table")}
     </div>

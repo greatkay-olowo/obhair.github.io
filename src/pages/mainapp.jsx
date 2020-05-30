@@ -16,6 +16,8 @@ import Footer from "../components/footer";
 import PageNotFound from "../pages/404";
 
 const MainApp = () => {
+  // open/close login modal
+
   return (
     <div style={style}>
       <Nav />

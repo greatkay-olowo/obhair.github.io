@@ -1,0 +1,44 @@
+http://localhost:5000
+
+############################################
+### Login as a customer
+GET http://localhost:5000/signin
+
+### Signup as a customer
+POST http://localhost:5000/signup
+
+### CUSTOMERS
+### Get all customers
+GET http://localhost:5000/customers
+
+### Edit a customers
+POST http://localhost:5000/customer/:id
+
+### Delete a customers
+DELETE http://localhost:5000/customer/:id
+
+##############################################
+### PRODUCTS
+### Get all product
+GET http://localhost:5000/products
+
+### New a product
+POST http://localhost:5000/product
+
+### Edit a product
+POST http://localhost:5000/product/:id
+
+### Delete a product
+DELETE http://localhost:5000/product/:id
+
+###################################################
+### CART
+### Get all cart
+GET http://localhost:5000/cart
+
+### New Cart
+POST http://localhost:5000/cart
+
+### Delete a cart
+DELETE http://localhost:5000/cart/:id
+

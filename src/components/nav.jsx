@@ -86,9 +86,9 @@ const Nav = ({ match }) => {
             <Link className="nav-link custom-nav-link" to="/register">
               Register
             </Link>
-            <Link className="nav-link custom-nav-link" to="/login">
+            <a className="nav-link custom-nav-link" href="/login">
               Login
-            </Link>
+            </a>
           </ul>
           <ul className="navbar-nav">
             <li

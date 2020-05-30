@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Modal from "react-modal";
 
-const Login = () => {
+const AdminProductView = () => {
   const [modalIsOpen, setIsOpen] = useState(false);
 
   function closeModal() {
     setIsOpen(false);
+    window.location = "/admin/products";
   }
   useEffect(() => {
     setIsOpen(true);
@@ -41,41 +42,33 @@ const Login = () => {
         <button onClick={closeModal} className="btn btn-danger btn-sm">
           close
         </button>
-        <form
-          className="form-signin"
-          style={{ height: "50vh", marginTop: "2rem" }}
-        >
-          <h1 className="h3 mb-3 font-weight-normal">Sign in</h1>
-          <label for="inputEmail" className="sr-only">
-            Email address
-          </label>
-          <input
-            type="email"
-            id="inputEmail"
-            className="form-control"
-            placeholder="Email address"
-            required
-            autofocus
-          />
-          <label for="inputPassword" className="sr-only">
-            Password
-          </label>
-          <input
-            type="password"
-            id="inputPassword"
-            className="form-control"
-            placeholder="Password"
-            required
-          />
-          <br />
 
-          <button className="btn btn-lg btn-primary btn-block" type="submit">
-            Ok
-          </button>
+        <form className="m-3">
+          <div className="form-group">
+            <input type="text" className="form-control" placeholder="Name" />
+          </div>
+          <div className="form-group">
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Category"
+            />
+          </div>
+          <div className="form-group">
+            <input type="text" className="form-control" placeholder="Price" />
+          </div>
+          <div className="form-group">
+            <input type="text" className="form-control" placeholder="Colour" />
+          </div>
+          <div className="form-group">
+            <input type="text" className="form-control" placeholder="Qty" />
+          </div>
+
+          <button className="btn btn-primary btn-sm col-12">Save</button>
         </form>
       </div>
     </Modal>
   );
 };
 
-export default Login;
+export default AdminProductView;
