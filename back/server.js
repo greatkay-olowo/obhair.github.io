@@ -22,12 +22,14 @@ mongoose
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
-// set up route
-// const excercisesRouter = require("./routes/exercises");
-// const usersRouter = require("./routes/users");
+// routes
+const CustomerRouter = require("./routes/customer");
+const ProductRouter = require("./routes/product");
+// const OrderRouter = require("./routes/order");
 
-// app.use("/excercises", excercisesRouter);
-// app.use("/users", usersRouter);
+app.use("/customer", CustomerRouter);
+app.use("/product", ProductRouter);
+// app.use("/order", OrderRouter);
 
 app.get("/", (req, res) => {
   res.send("hahahahahah");

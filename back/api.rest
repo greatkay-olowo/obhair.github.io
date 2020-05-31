@@ -1,44 +1,122 @@
-http://localhost:5000
+@URL = http://localhost:5000
 
 ############################################
-### Login as a customer
-GET http://localhost:5000/signin
-
-### Signup as a customer
-POST http://localhost:5000/signup
-
 ### CUSTOMERS
-### Get all customers
-GET http://localhost:5000/customers
+### Login as a customer ----DONE---
+POST {{URL}}/customer/signin HTTP/1.1
+content-type: application/json
 
-### Edit a customers
-POST http://localhost:5000/customer/:id
+{
+    "email": "adminemail",
+    "password": "admin"
+}
 
-### Delete a customers
-DELETE http://localhost:5000/customer/:id
+### Signup as a customer ---DONE---
+POST {{URL}}/customer/new HTTP/1.1
+content-type: application/json
 
+{
+    "firstName": "Admin",
+    "lastName": "Admin",
+    "phone": "07039439340",
+    "email": "admine",
+    "address": "1, Pike Road North, Dagenham, UK",
+    "password": "admin",
+    "date": "12/22/2020"
+}
+
+### Get all customers ---DONE---
+GET {{URL}}/customer
+
+### Find a customers ---DONE---
+POST {{URL}}/customer/:id
+# POST {{URL}}/customer/5ed3c95dae15df159864bf6e
+
+### Edit a customers ---DONE---
+POST {{URL}}/customer/:id
+# POST {{URL}}/customer/update/5ed3cddb89aabc42b409fc10 HTTP/1.1
+content-type: application/json
+
+{
+    "firstName": "Admin test edited",
+    "lastName": "Admin last edited",
+    "phone": "07039439340",
+    "email": "edited",
+    "address": "1, Pike Road North, Dagenham, UK",
+    "password": "edited",
+    "date": "12/22/2020"
+}
+
+### Delete a customers ---DONE---
+# DELETE {{URL}}/customer/delete/:id
+DELETE {{URL}}/customer/delete/5ed3d609ef4f6e3be45d5898
+
+
+##############################################
+##############################################
 ##############################################
 ### PRODUCTS
 ### Get all product
-GET http://localhost:5000/products
+GET {{URL}}/product
 
-### New a product
-POST http://localhost:5000/product
+### New a product ---DONE---
+POST {{URL}}/product/new HTTP/1.1
+content-type: application/json
 
-### Edit a product
-POST http://localhost:5000/product/:id
+{
+    "name": "Curly Bouncy Hair",
+    "category": "Curly Hair",
+    "color": "blond",
+    "price": 200,
+    "length": 15
+}
 
-### Delete a product
-DELETE http://localhost:5000/product/:id
+### Get a product ---DONE---
+# GET {{URL}}/product/:id
+GET {{URL}}/product/5ed3f98574f4dd3e2039723f
 
+
+
+### Edit a product ---DONE---
+POST {{URL}}/product/update/5ed3f98574f4dd3e2039723f HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Curly Large Hair",
+    "category": "Curly Hair",
+    "color": "black",
+    "price": 20,
+    "length": 15
+}
+
+### Delete a product ---DONE---
+DELETE {{URL}}/product/delete/5ed3f98574f4dd3e2039723f
+
+###################################################
+###################################################
+###################################################
+###################################################
 ###################################################
 ### CART
 ### Get all cart
-GET http://localhost:5000/cart
+GET {{URL}}/cart
 
 ### New Cart
-POST http://localhost:5000/cart
+POST {{URL}}/cart
 
 ### Delete a cart
-DELETE http://localhost:5000/cart/:id
+DELETE {{URL}}/cart/:id
 
+###################################################
+###################################################
+###################################################
+###################################################
+###################################################
+### Admin Signin
+POST {{URL}}/admin/login/ HTTP/1.1
+content-type: application/json
+
+{
+    "email": "Admin test edited",
+    "password": "Admin last edited"
+}
