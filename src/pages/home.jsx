@@ -6,6 +6,7 @@ import "./section.css";
 import axios from "axios";
 import Spinner from "../components/spinner";
 const SmallProductCard = lazy(() => import("../components/smallerProductCard"));
+import ErrorBoundry from "../components/errorBoundary";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
@@ -28,9 +29,11 @@ const Home = () => {
 
             <div className="scrolling-wrapper">
               {homeProduct.map((item) => (
-                <Suspense fallback={<Spinner />}>
-                  <SmallProductCard item={item} key={item._id} />
-                </Suspense>
+                <ErrorBoundry>
+                  <Suspense fallback={<Spinner />}>
+                    <SmallProductCard item={item} key={item._id} />
+                  </Suspense>
+                </ErrorBoundry>
               ))}
             </div>
           </div>

@@ -18,6 +18,7 @@ import Nav from "../components/nav";
 // const Nav = lazy(() => import("../components/nav"));
 import Footer from "../components/footer";
 // const Footer = lazy(() => import("../components/footer"));
+import ErrorBoundry from "../components/errorBoundary";
 
 const MainApp = () => {
   // open/close login modal
@@ -27,18 +28,42 @@ const MainApp = () => {
       <Nav />
 
       <Switch>
-        <Route path="/" component={Home} exact />
-        <Route path="/login" component={Login} />
-        <Route path="/register" component={Register} />
-        <Route path="/userprofile/:id" component={Userprofile} />
-        <Route path="/straighthair" component={StraightHair} />
-        <Route path="/curlyhair" component={CurlyHair} />
-        <Route path="/eyelash" component={EyeLash} />
-        <Route path="/glue" component={Glue} />
-        <Route path="/product/:id" component={Product} />
-        <Route path="/checkout" component={Checkout} />
-        <Route path="/orders" component={Orders} />
-        <Route path="*" component={PageNotFound} />
+        <ErrorBoundry>
+          <Route path="/" component={Home} exact />
+        </ErrorBoundry>
+        <ErrorBoundry>
+          <Route path="/login" component={Login} />
+        </ErrorBoundry>
+        <ErrorBoundry>
+          <Route path="/register" component={Register} />
+        </ErrorBoundry>
+        <ErrorBoundry>
+          <Route path="/userprofile/:id" component={Userprofile} />
+        </ErrorBoundry>
+        <ErrorBoundry>
+          <Route path="/straighthair" component={StraightHair} />
+        </ErrorBoundry>
+        <ErrorBoundry>
+          <Route path="/curlyhair" component={CurlyHair} />
+        </ErrorBoundry>
+        <ErrorBoundry>
+          <Route path="/eyelash" component={EyeLash} />
+        </ErrorBoundry>
+        <ErrorBoundry>
+          <Route path="/glue" component={Glue} />
+        </ErrorBoundry>
+        <ErrorBoundry>
+          <Route path="/product/:id" component={Product} />
+        </ErrorBoundry>
+        <ErrorBoundry>
+          <Route path="/checkout" component={Checkout} />
+        </ErrorBoundry>
+        <ErrorBoundry>
+          <Route path="/orders" component={Orders} />
+        </ErrorBoundry>
+        <ErrorBoundry>
+          <Route path="*" component={PageNotFound} />
+        </ErrorBoundry>
       </Switch>
 
       <Footer />
