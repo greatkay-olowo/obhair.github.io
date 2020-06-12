@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import DataTable from "../components/datatable";
 import { Link } from "react-router-dom";
-import ServerTable from "react-strap-table";
+// import ServerTable from "react-strap-table";
 import axios from "axios";
 
 const AdminProducts = () => {
@@ -27,13 +27,13 @@ const AdminProducts = () => {
       </Link>
       <hr />
       <strong>All Products</strong>
-      <ServerTable
+      {/* <ServerTable
         columns={columns}
         url={url}
         options={options}
         bordered
         hover
-      />
+      /> */}
     </div>
   );
 };
