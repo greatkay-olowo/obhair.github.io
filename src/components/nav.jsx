@@ -122,7 +122,7 @@ const Nav = ({ match }) => {
           </ul>
 
           {/* on large screens */}
-          <div className="d-none d-lg-block">
+          {/* <div className="d-none d-lg-block">
             <form className="form-inline my-2 my-lg-0 shadow nav--search-form">
               <input
                 className="form-control mr-sm-2  nav--search-form--input"
@@ -137,13 +137,13 @@ const Nav = ({ match }) => {
                 <i className="fas fa-search"></i>
               </button>
             </form>
-          </div>
+          </div> */}
         </div>
       </nav>
 
-      <div className="shadow d-lg-none d-xl-none " style={style.searchWrapper}>
+      {/* <div className="shadow d-lg-none d-xl-none " style={style.searchWrapper}>
         <div className="">
-          {/* search on smaller screen */}
+
 
           <input
             type="text"
@@ -152,7 +152,7 @@ const Nav = ({ match }) => {
             placeholder="Search for Products here"
           />
         </div>
-      </div>
+      </div> */}
     </>
   );
 };

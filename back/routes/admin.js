@@ -9,12 +9,12 @@ router.post("/login", (req, res) => {
   Admin.find({ email: email })
     .then((result) => {
       if (result.length === 0) {
-        res.status("400").json("Account not found");
+        res.status(400).json("Account not found");
       } else {
         if (result[0].password === password) {
-          res.status("200").json("true");
+          res.status(200).json("true");
         } else {
-          res.status("200").json("Login not correct");
+          res.status(400).json("Login not correct");
         }
       }
     })

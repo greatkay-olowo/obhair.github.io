@@ -29,12 +29,12 @@ content-type: application/json
 GET {{URL}}/customer
 
 ### Find a customers ---DONE---
-POST {{URL}}/customer/:id
-# POST {{URL}}/customer/5ed3c95dae15df159864bf6e
+# POST {{URL}}/customer/:id
+GET {{URL}}/customer/5ed3d609ef4f6e3be45d5898
 
-### Edit a customers ---DONE---
-POST {{URL}}/customer/:id
-# POST {{URL}}/customer/update/5ed3cddb89aabc42b409fc10 HTTP/1.1
+### Update a customers ---DONE---
+# PUT {{URL}}/customer/:id
+PUT {{URL}}/customer/5ed3c95dae15df159864bf6e HTTP/1.1
 content-type: application/json
 
 {
@@ -49,7 +49,7 @@ content-type: application/json
 
 ### Delete a customers ---DONE---
 # DELETE {{URL}}/customer/delete/:id
-DELETE {{URL}}/customer/delete/5ed3d609ef4f6e3be45d5898
+DELETE {{URL}}/customer/5ed3d609ef4f6e3be45d5898
 
 
 ##############################################
@@ -64,11 +64,13 @@ POST {{URL}}/product/new HTTP/1.1
 content-type: application/json
 
 {
-    "name": "Curly Bouncy Hair",
-    "category": "Curly Hair",
+    "name": "Hair Glue",
+    "category": "Glue",
     "color": "blond",
     "price": 200,
-    "length": 15
+    "length": 15,
+    "frontPage": true,
+
 }
 
 ### Get a product ---DONE---
@@ -77,8 +79,8 @@ GET {{URL}}/product/5ed3f98574f4dd3e2039723f
 
 
 
-### Edit a product ---DONE---
-POST {{URL}}/product/update/5ed3f98574f4dd3e2039723f HTTP/1.1
+### Update a product ---DONE---
+PUT {{URL}}/product/5ed3f98574f4dd3e2039723f HTTP/1.1
 content-type: application/json
 
 {
@@ -90,7 +92,7 @@ content-type: application/json
 }
 
 ### Delete a product ---DONE---
-DELETE {{URL}}/product/delete/5ed3f98574f4dd3e2039723f
+DELETE {{URL}}/product/5ed3f98574f4dd3e2039723f
 
 ###################################################
 ###################################################
@@ -98,13 +100,13 @@ DELETE {{URL}}/product/delete/5ed3f98574f4dd3e2039723f
 ###################################################
 ###################################################
 ### CART
-### Get all cart
+### Get all cart --DONE--
 GET {{URL}}/cart
 
-### New Cart
+### New Cart --DONE--
 POST {{URL}}/cart
 
-### Delete a cart
+### Delete a cart --DONE--
 DELETE {{URL}}/cart/:id
 
 ###################################################

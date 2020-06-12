@@ -1,41 +1,38 @@
-// const mongoose = require("mongoose");
+const express = require("express");
+const router = express.Router();
+const Order = require("../models/order.model");
 
-// const Schema = mongoose.Schema;
-const OrderSchema = {};
-// const productSchema = new Schema({
-//   name: {
-//     type: String,
-//     required: true,
-//     trim: true,
-//     minlength: 3,
-//   },
+// Get all Orders
+router.get("/all", (req, res) => {
+  Order.find()
+    .then((orders) => res.status(200).json(orders))
+    .catch((err) => res.status(400).json("Error:" + err));
+});
 
-//   category: {
-//     type: String,
-//     required: true,
-//     trim: true,
-//     minlength: 3,
-//   },
+// Get a. Orders
+router.get("/:id", (req, res) => {
+  const { id } = req.params;
+  Order.findById(id)
+    .then((order) => res.status(200).json(order))
+    .catch((err) => res.status(400).json("Error:" + err));
+});
 
-//   colour: {
-//     type: String,
-//     required: true,
-//     trim: true,
-//   },
+// POST orders
+router.post("/", (req, res) => {
+  const { productId, customerId, status } = req.body;
+  const orderDate = Date.parse(req.body.date);
 
-//   price: {
-//     type: String,
-//     required: true,
-//     trim: true,
-//   },
+  const newOrder = new Order({
+    productId,
+    customerId,
+    orderDate,
+    status,
+  });
 
-//   length: {
-//     type: String,
-//     required: true,
-//     trim: true,
-//   },
-// });
+  newOrder
+    .save()
+    .then(() => res.json("Order Successfully placed!"))
+    .catch((err) => res.status(400).json("Error: " + err));
+});
 
-// const Product = mongoose.model("Product", productSchema);
-
-module.exports = OrderSchema;
+module.exports = router;

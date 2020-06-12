@@ -6,7 +6,11 @@ const Customer = require("../models/customer.model");
 router.get("/", (req, res) => {
   Customer.find()
     .then((Customer) => res.json(Customer))
-    .catch((err) => res.status(400).json("Error: " + err));
+    .catch((err) =>
+      res
+        .status(404)
+        .json({ Status: "Error", Message: `Cannot get all customers. ${err}` })
+    );
 });
 
 //add a new customer
@@ -26,12 +30,25 @@ router.post("/new", (req, res) => {
 
   Customer.find({ email: email }).then((result) => {
     if (result.length !== 0) {
-      res.status(400).json(`${email} already taken`);
+      res
+        .status(401)
+        .json({ Status: "Failed", Message: `${email} already taken.` });
     } else {
       newCustomer
         .save()
-        .then(() => res.json("Customer added!"))
-        .catch((err) => res.status(400).json("Error: " + err));
+        .then(() =>
+          res
+            .status(201)
+            .json({ Status: "success", Message: "Customer added." })
+        )
+        .catch((err) =>
+          res
+            .status(400)
+            .json({
+              Status: "Error",
+              Message: `Customer cannot be added. ${err}`,
+            })
+        );
     }
   });
 });
@@ -42,31 +59,46 @@ router.post("/signin", (req, res) => {
   Customer.find({ email: email })
     .then((result) => {
       if (result.length === 0) {
-        res.status("400").json("Account not found");
+        res
+          .status(404)
+          .json({ Status: "Failed", Message: "Account not found" });
       } else {
         if (result[0].password === password) {
-          res.status("200").json("true");
+          res.status(202).json({ Status: "success", Message: "true" });
         } else {
-          res.status("200").json("Login not correct");
+          res
+            .status(400)
+            .json({ Status: "Failed", Message: "Login not correct" });
         }
       }
     })
-    .catch((err) => res.status(400).json("Error:" + err));
+    .catch((err) =>
+      res
+        .status(400)
+        .json({ Status: "Error:", Message: `Login not successful. ${err}` })
+    );
 });
 
 // Find a customer
-router.post("/:id", (req, res) => {
+router.get("/:id", (req, res) => {
   const { id } = req.params;
   Customer.findById(id)
     .then((customer) => {
       const { firstName, lastName, phone, email, address } = customer;
-      res.status(200).json({ firstName, lastName, phone, email, address });
+      res.status(202).json({
+        status: "success",
+        Message: { firstName, lastName, phone, email, address },
+      });
     })
-    .catch((err) => res.status(400).json("Error:" + err));
+    .catch((err) =>
+      res
+        .status(400)
+        .json({ Status: "Error", Message: `No customer found ${err}` })
+    );
 });
 
 // update a customer
-router.post("/update/:id", (req, res) => {
+router.put("/:id", (req, res) => {
   const { firstName, lastName, phone, email, address } = req.body;
   const { id } = req.params;
   Customer.findById(id)
@@ -75,24 +107,43 @@ router.post("/update/:id", (req, res) => {
       customer.lastName = lastName;
       customer.phone = phone;
       customer.email = email;
-      customer.address = firstName;
+      customer.address = address;
       customer
         .save()
-        .then(() => res.json("Profile Update Successfull!"))
+        .then(() =>
+          res
+            .status(202)
+            .json({ Status: "success", Message: "Profile update successfull" })
+        )
         .catch((err) =>
-          res.status(400).json("Profile Update Not Successful. Error: " + err)
+          res
+            .status(400)
+            .json({
+              Status: "Error",
+              Message: `Profile cannot be updated. ${err}`,
+            })
         );
     })
-    .catch((err) => res.status(400).json("Error:" + err));
+    .catch((err) =>
+      res
+        .status(400)
+        .json({ Status: "Error", Message: `Profile cannot be updated. ${err}` })
+    );
 });
 
 //Delete a customer's account
-router.delete("/delete/:id", (req, res) => {
+router.delete("/:id", (req, res) => {
   const { id } = req.params;
   Customer.findByIdAndDelete(id)
-    .then((result) => res.json("Account Deleted"))
+    .then((result) =>
+      res
+        .status(202)
+        .json({ Status: "success", Message: `${id} Account Deleted` })
+    )
     .catch((err) =>
-      res.status(400).json("Delete Not Successfull. Error: " + err)
+      res
+        .status(400)
+        .json({ Status: "Failed", Message: `Delete Not successfull. ${err}` })
     );
 });
 

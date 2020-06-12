@@ -1,24 +1,23 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import DataTable from "../components/datatable";
 import { Link } from "react-router-dom";
+import ServerTable from "react-strap-table";
+import axios from "axios";
 
 const AdminProducts = () => {
-  const product = [
-    {
-      NAME: "Mango hair",
-      CATEGORY: "straight hair",
-      PRICE: [65, 70],
-      INCHES: ['11"', '13"', '10"'],
-      COLOUR: "Natural color",
-      QTY: 302,
-      EDIT: <Link to="/admin/product/:id">Edit</Link>,
-      DELETE: (
-        <Link className="text-danger" to="#">
-          Delete
-        </Link>
-      ),
-    },
-  ];
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    axios.get("/product").then((data) => {
+      setProducts(data.data);
+    });
+  }, []);
+  // console.log(products);
+  const url = "/product";
+  const columns = ["ID", "Name", "Category", "Price"];
+  const options = {
+    headings: { ID: "#", Name: "Name", Category: "Category", Price: "Price" },
+    sortable: ["Name", "Category"],
+  };
   return (
     <div className="mt-5">
       <p style={{ fontSize: "20px", fonrWeight: "bold" }}>Products</p>
@@ -28,7 +27,13 @@ const AdminProducts = () => {
       </Link>
       <hr />
       <strong>All Products</strong>
-      <DataTable data={product} sort1={"name"} sort2={"category"} sort3 />
+      <ServerTable
+        columns={columns}
+        url={url}
+        options={options}
+        bordered
+        hover
+      />
     </div>
   );
 };

@@ -63,6 +63,10 @@ const AdminProductView = () => {
           <div className="form-group">
             <input type="text" className="form-control" placeholder="Qty" />
           </div>
+          <div className="form-group">
+            <label>Add product image</label>
+            <input type="file" className="form-control" placeholder="File" />
+          </div>
 
           <button className="btn btn-primary btn-sm col-12">Save</button>
         </form>

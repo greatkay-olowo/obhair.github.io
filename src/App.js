@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, lazy, Suspense } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
+// const MainApp = lazy(() => import("./pages/mainapp"));
 import MainApp from "./pages/mainapp";
 import Admin from "./pages/admin";
 

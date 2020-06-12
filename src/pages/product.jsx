@@ -1,11 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Layout from "./layout";
+import axios from "axios";
 
-import img from "../img/3.jpg";
-
-const Product = () => {
+const Product = (props) => {
+  const { id } = props.match.params;
   const [quantity, setQuantity] = useState(1);
+  const [item, setItem] = useState({});
+
+  useEffect(() => {
+    axios.get(`/product/${id}`).then((data) => {
+      const message = data.data.Message;
+      setItem(message);
+    });
+  }, [id]);
 
   return (
     <div>
@@ -22,23 +30,30 @@ const Product = () => {
             </Link>
           </li>
           <li className="breadcrumb-item active" aria-current="page">
-            <Link to="#">Straight Hair 111</Link>
+            <Link className="btn-link disabled">{`${item.name}`}</Link>
           </li>
         </ol>
       </nav>
+
       <Layout>
         <div className="card shadow">
           <div className="row">
             <div className="col-lg-6" style={style.imgContainer}>
               <div className="p-4">
-                <img src={img} alt="" srcSet="" className="img-fluid" />
+                <img
+                  src={`http://localhost:5000/image/${item.image}`}
+                  alt={item.name}
+                  srcSet=""
+                  className="img-fluid"
+                />
               </div>
             </div>
 
             <div className="col-lg-6" style={style.story}>
               <div className="p-4 ">
-                <p style={style.header}>Straight Hair</p>
-                <p style={style.info}>GBP 200</p>
+                <p style={style.header}>{item.name}</p>
+                <p style={style.info}>&#xa3; {item.price}</p>
+
                 <div className="input-group mb-3">
                   <div className="input-group-prepend">
                     <span className="input-group-text" id="basic-addon1">
@@ -53,7 +68,7 @@ const Product = () => {
                   />
                 </div>
 
-                <div className="input-group mb-3">
+                {/* <div className="input-group mb-3">
                   <div className="input-group-prepend">
                     <span className="input-group-text" id="basic-addon1">
                       Length
@@ -71,7 +86,8 @@ const Product = () => {
                     <option value="">10"</option>
                     <option value="">8"</option>
                   </select>
-                </div>
+                </div> */}
+
                 <Link to="/checkout">
                   <button className="btn btn-primary round-pill col-12">
                     Add to Cart
@@ -82,32 +98,18 @@ const Product = () => {
                 <ul>
                   <p style={style.specsHeader}>SPECIFICATIONS</p>
                   <li style={style.li}>
-                    SKU: <span style={style.liSpan}>FA203HB1IVIEMNAFAMZ</span>
+                    Hair Type: <span style={style.liSpan}>{item.category}</span>
                   </li>
                   <li style={style.li}>
-                    Hair Type: <span style={style.liSpan}>Curly</span>
-                  </li>
+                    Color: <span style={style.liSpan}>{item.color}</span>
+                  </li>{" "}
                   <li style={style.li}>
-                    Skin Type: <span style={style.liSpan}>All Skin Types</span>
-                  </li>
-                  <li style={style.li}>
-                    Color: <span style={style.liSpan}>Natural color</span>
-                  </li>
-                  <li style={style.li}>
-                    Main Material: <span style={style.liSpan}>fibre</span>
-                  </li>
-                  <li style={style.li}>
-                    Product Line:{" "}
-                    <span style={style.liSpan}>Goodnews Hairs</span>
-                  </li>
-                  <li style={style.li}>
-                    Weight (kg): <span style={style.liSpan}>0.25</span>
+                    Length: <span style={style.liSpan}>{item.length}</span>
                   </li>
                 </ul>
               </div>
             </div>
           </div>
-          <div className="col-lg-6"></div>
         </div>
       </Layout>
     </div>

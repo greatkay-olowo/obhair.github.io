@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, lazy, Suspense } from "react";
 import { Switch, Route } from "react-router-dom";
-import Nav from "../components/nav";
+// const MainApp = lazy(() => import("./pages/mainapp"));
 import Home from "../pages/home";
 import Login from "../pages/login";
 import Register from "../pages/register";
@@ -12,15 +12,21 @@ import Glue from "../pages/glue";
 import Product from "../pages/product";
 import Checkout from "../pages/checkout";
 import Orders from "../pages/orders";
-import Footer from "../components/footer";
 import PageNotFound from "../pages/404";
+import Spinner from "../components/spinner";
+// import Nav from "../components/nav";
+const Nav = lazy(() => import("../components/nav"));
+// import Footer from "../components/footer";
+const Footer = lazy(() => import("../components/footer"));
 
 const MainApp = () => {
   // open/close login modal
 
   return (
     <div style={style}>
-      <Nav />
+      <Suspense fallback={<Spinner />}>
+        <Nav />
+      </Suspense>
       <Switch>
         <Route path="/" component={Home} exact />
         <Route path="/login" component={Login} />
@@ -35,7 +41,9 @@ const MainApp = () => {
         <Route path="/orders" component={Orders} />
         <Route path="*" component={PageNotFound} />
       </Switch>
-      <Footer />
+      <Suspense fallback={<Spinner />}>
+        <Footer />
+      </Suspense>
     </div>
   );
 };
