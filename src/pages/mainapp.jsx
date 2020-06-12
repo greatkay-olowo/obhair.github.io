@@ -14,19 +14,18 @@ import Checkout from "../pages/checkout";
 import Orders from "../pages/orders";
 import PageNotFound from "../pages/404";
 import Spinner from "../components/spinner";
-// import Nav from "../components/nav";
-const Nav = lazy(() => import("../components/nav"));
-// import Footer from "../components/footer";
-const Footer = lazy(() => import("../components/footer"));
+import Nav from "../components/nav";
+// const Nav = lazy(() => import("../components/nav"));
+import Footer from "../components/footer";
+// const Footer = lazy(() => import("../components/footer"));
 
 const MainApp = () => {
   // open/close login modal
 
   return (
     <div style={style}>
-      <Suspense fallback={<Spinner />}>
-        <Nav />
-      </Suspense>
+      <Nav />
+
       <Switch>
         <Route path="/" component={Home} exact />
         <Route path="/login" component={Login} />
@@ -41,9 +40,8 @@ const MainApp = () => {
         <Route path="/orders" component={Orders} />
         <Route path="*" component={PageNotFound} />
       </Switch>
-      <Suspense fallback={<Spinner />}>
-        <Footer />
-      </Suspense>
+
+      <Footer />
     </div>
   );
 };
