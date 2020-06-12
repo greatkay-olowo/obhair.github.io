@@ -1,12 +1,11 @@
 import React, { useEffect, useState, lazy, Suspense } from "react";
 import Layout from "./layout";
-
+import ErrorBoundry from "../components/errorBoundary";
 // import SmallProductCard from "../components/smallerProductCard";
 import "./section.css";
 import axios from "axios";
 import Spinner from "../components/spinner";
 const SmallProductCard = lazy(() => import("../components/smallerProductCard"));
-import ErrorBoundry from "../components/errorBoundary";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
@@ -16,7 +15,7 @@ const Home = () => {
     });
   }, []);
 
-  const homeProduct = products.filter((product) => product.frontPage);
+  // const homeProduct = products.filter((product) => product.frontPage);
 
   return (
     <Layout>
@@ -28,7 +27,7 @@ const Home = () => {
             <h1 className="header align-middle custom-header">New Items</h1>
 
             <div className="scrolling-wrapper">
-              {homeProduct.map((item) => (
+              {products.map((item) => (
                 <ErrorBoundry>
                   <Suspense fallback={<Spinner />}>
                     <SmallProductCard item={item} key={item._id} />

@@ -12,7 +12,7 @@ class ErrorBoundary extends Component {
 
   componentDidCatch(error, info) {
     // You can also log the error to an error reporting service
-    console.error(error, info);
+    console.error({ error }, { info });
   }
 
   render() {
