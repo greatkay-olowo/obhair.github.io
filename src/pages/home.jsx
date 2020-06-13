@@ -18,6 +18,7 @@ const Home = () => {
   const fetchedData = (products) => {
     if (fecthedData) {
       for (let item of products) {
+        console.log(item);
         return <SmallProductCard item={item} />;
       }
     }
