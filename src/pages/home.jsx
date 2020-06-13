@@ -21,9 +21,9 @@ const Home = () => {
           <div className="card-body ">
             <h1 className="header align-middle custom-header">New Items</h1>
             <div className="scrolling-wrapper">
-              {products.map((item) => (
-                <SmallProductCard item={item} key={item._id} />
-              ))}
+              {products.map(function (item) {
+                return <SmallProductCard item={item} key={item._id} />;
+              })}
             </div>
           </div>
         </div>
