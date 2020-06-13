@@ -59,6 +59,10 @@ DELETE {{URL}}/customer/5ed3d609ef4f6e3be45d5898
 ### Get all product
 GET {{URL}}/product
 
+### Get front page product
+GET {{URL}}/product/home
+
+
 ### New a product ---DONE---
 POST {{URL}}/product/new HTTP/1.1
 content-type: application/json

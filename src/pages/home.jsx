@@ -1,25 +1,28 @@
-import React, { useEffect, useState, lazy, Suspense } from "react";
+import React, { useEffect, useState, Suspense } from "react";
 import Layout from "./layout";
-import ErrorBoundry from "../components/errorBoundary";
-// import SmallProductCard from "../components/smallerProductCard";
-import "./section.css";
 import axios from "axios";
+import ErrorBoundry from "../components/errorBoundary";
 import Spinner from "../components/spinner";
-const SmallProductCard = lazy(() => import("../components/smallerProductCard"));
+import Alert from "../components/alert";
+import "./section.css";
+// import SmallProductCard from "../components/smallerProductCard";
+const SmallProductCard = React.lazy(() =>
+  import("../components/smallerProductCard")
+);
 
 const Home = () => {
   const [products, setProducts] = useState([]);
+  const [hasError, setHasError] = useState(false);
+  const [error, setError] = useState("");
+
   useEffect(() => {
-    axios.get("/product").then((data) => {
+    axios.get("/product/home").then((data) => {
       setProducts(data.data);
     });
   }, []);
-
-  // const homeProduct = products.filter((product) => product.frontPage);
-
+  console.log({ products });
   return (
     <Layout>
-      <p>Hello Obi</p>
       {/* new items */}
       <div className="card-margin">
         <div className="card shadow custom-card">
@@ -29,7 +32,7 @@ const Home = () => {
             <div className="scrolling-wrapper">
               {products.map((item) => (
                 <ErrorBoundry>
-                  <Suspense fallback={<Spinner />}>
+                  <Suspense fallback={<Spinner />} key={item._id}>
                     <SmallProductCard item={item} key={item._id} />
                   </Suspense>
                 </ErrorBoundry>

@@ -75,7 +75,7 @@ const Nav = ({ match }) => {
                   borderBottomColor: "2px solid #007bff",
                   color: "#007bff",
                 }}
-                to="glue"
+                to="/glue"
                 exact
               >
                 Glue

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import DataTable from "../components/datatable";
+// import DataTable from "../components/datatable";
 import { Link } from "react-router-dom";
 // import ServerTable from "react-strap-table";
 import axios from "axios";
@@ -11,13 +11,13 @@ const AdminProducts = () => {
       setProducts(data.data);
     });
   }, []);
-  // console.log(products);
-  const url = "/product";
-  const columns = ["ID", "Name", "Category", "Price"];
-  const options = {
-    headings: { ID: "#", Name: "Name", Category: "Category", Price: "Price" },
-    sortable: ["Name", "Category"],
-  };
+  console.log(products);
+  // const url = "/product";
+  // const columns = ["ID", "Name", "Category", "Price"];
+  // const options = {
+  //   headings: { ID: "#", Name: "Name", Category: "Category", Price: "Price" },
+  //   sortable: ["Name", "Category"],
+
   return (
     <div className="mt-5">
       <p style={{ fontSize: "20px", fonrWeight: "bold" }}>Products</p>

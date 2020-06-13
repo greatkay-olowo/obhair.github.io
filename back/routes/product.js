@@ -16,6 +16,19 @@ router.get("/", (req, res) => {
     );
 });
 
+//GET home page product
+router.get("/home", (req, res) => {
+  Product.find({ frontPage: true })
+    .then((product) => {
+      res.status(202).json(product);
+    })
+    .catch((err) =>
+      res
+        .status(400)
+        .json({ Status: "failed", Message: `Cannot get all products. ${err}` })
+    );
+});
+
 // Add new Product
 router.post("/new", upload.single("profile"), (req, res) => {
   const { name, category, color, price, length, frontPage } = req.body;
