@@ -156,18 +156,18 @@ const Nav = ({ match }) => {
     </>
   );
 };
-const style = {
-  searchWrapper: {
-    margin: "0",
-    padding: "0 !important",
-    paddingTop: "0.5rem",
-    paddingBottom: "0.5rem",
-    background: "#FFF",
-  },
+// const style = {
+//   searchWrapper: {
+//     margin: "0",
+//     padding: "0 !important",
+//     paddingTop: "0.5rem",
+//     paddingBottom: "0.5rem",
+//     background: "#FFF",
+//   },
 
-  search: {
-    border: "2px solid #dcdcdc",
-    borderRadius: "6px",
-  },
-};
+//   search: {
+//     border: "2px solid #dcdcdc",
+//     borderRadius: "6px",
+//   },
+// };
 export default Nav;

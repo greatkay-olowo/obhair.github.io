@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
-// import DataTable from "../components/datatable";
 import { Link } from "react-router-dom";
-// import ServerTable from "react-strap-table";
 import axios from "axios";
 
 const AdminProducts = () => {
@@ -12,11 +10,6 @@ const AdminProducts = () => {
     });
   }, []);
   console.log(products);
-  // const url = "/product";
-  // const columns = ["ID", "Name", "Category", "Price"];
-  // const options = {
-  //   headings: { ID: "#", Name: "Name", Category: "Category", Price: "Price" },
-  //   sortable: ["Name", "Category"],
 
   return (
     <div className="mt-5">
@@ -27,13 +20,67 @@ const AdminProducts = () => {
       </Link>
       <hr />
       <strong>All Products</strong>
-      {/* <ServerTable
-        columns={columns}
-        url={url}
-        options={options}
-        bordered
-        hover
-      /> */}
+      <table className="table">
+        <thead className="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>@twitter</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table className="table">
+        <thead className="thead-light">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>@twitter</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   );
 };
