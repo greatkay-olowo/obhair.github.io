@@ -6,12 +6,22 @@ import SmallProductCard from "../components/smallerProductCard";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
+  const [fecthedData, setFetchedData] = useState(false);
 
   useEffect(() => {
     axios.get("/product/home").then((data) => {
       setProducts(data.data);
+      setFetchedData(true);
     });
   }, []);
+
+  const fetchedData = (products) => {
+    if (fecthedData) {
+      for (let item of products) {
+        return <SmallProductCard item={item} />;
+      }
+    }
+  };
 
   return (
     <Layout>
@@ -20,14 +30,11 @@ const Home = () => {
         <div className="card shadow custom-card">
           <div className="card-body ">
             <h1 className="header align-middle custom-header">New Items</h1>
-            <div className="scrolling-wrapper">
-              {products.map(function (item) {
-                return <SmallProductCard item={item} key={item._id} />;
-              })}
-            </div>
+            {fetchedData(products)}
           </div>
         </div>
       </div>
+
       {/* end of new items */}
     </Layout>
   );
