@@ -16,12 +16,9 @@ import Nav from "../components/nav";
 import Footer from "../components/footer";
 
 const MainApp = () => {
-  // open/close login modal
-
   return (
     <div style={style}>
       <Nav />
-
       <Switch>
         <Route path="/" component={Home} exact />
 

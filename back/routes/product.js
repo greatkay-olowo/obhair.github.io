@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Product = require("../models/product.model");
-const upload = require("../models/imageuploader");
+// const upload = require("../models/imageuploader");
 
 //GET all product
 router.get("/", (req, res) => {
@@ -30,34 +30,48 @@ router.get("/home", (req, res) => {
 });
 
 // Add new Product
-router.post("/new", upload.single("profile"), (req, res) => {
-  const { name, category, color, price, length, frontPage } = req.body;
-  const image = req.file.filename;
+router.post("/new", (req, res) => {
+  try {
+    const {
+      name,
+      category,
+      color,
+      price,
+      length,
+      frontPage,
+      image,
+      imageID,
+    } = req.body;
 
-  const newProduct = new Product({
-    name,
-    category,
-    color,
-    price,
-    length,
-    frontPage,
-    image,
-  });
-
-  newProduct
-    .save()
-    .then(() =>
-      res.status(202).json({ Status: "success", Message: "Product added." })
-    )
-    .catch((err) =>
-      res
-        .status(400)
-        .json({ Status: "Error", Message: `Product cannot be added. ${err}` })
-    );
+    const newProduct = new Product({
+      name,
+      category,
+      color,
+      price,
+      length,
+      frontPage,
+      image,
+      imageID,
+    });
+    // console.log({ newProduct });
+    newProduct
+      .save()
+      .then(() =>
+        res.status(202).json({ Status: "success", Message: "Product added." })
+      )
+      .catch((err) =>
+        res
+          .status(400)
+          .json({ Status: "Error", Message: `Product cannot be added. ${err}` })
+      );
+  } catch (err) {
+    console.error({ err });
+  }
 });
 
 // get a product
-router.get("/:id", upload.single("profile"), (req, res) => {
+// router.get("/:id", upload.single("profile"), (req, res) => {
+router.get("/:id", (req, res) => {
   const { id } = req.params;
   Product.findById(id)
     .then((product) => {
@@ -69,10 +83,20 @@ router.get("/:id", upload.single("profile"), (req, res) => {
         length,
         frontPage,
         image,
+        imageID,
       } = product;
       res.status(202).json({
         Status: "success",
-        Message: { name, category, color, price, length, frontPage, image },
+        Message: {
+          name,
+          category,
+          color,
+          price,
+          length,
+          frontPage,
+          image,
+          imageID,
+        },
       });
     })
     .catch((err) =>
@@ -85,8 +109,17 @@ router.get("/:id", upload.single("profile"), (req, res) => {
 // update a product
 router.put("/:id", (req, res) => {
   const { id } = req.params;
-  const { name, category, color, price, length } = req.body;
-  const image = req.file.filename;
+  const {
+    name,
+    category,
+    color,
+    price,
+    length,
+    frontPage,
+    img,
+    imageID,
+  } = req.body;
+
   Product.findById(id)
     .then((product) => {
       product.name = name;
@@ -94,7 +127,9 @@ router.put("/:id", (req, res) => {
       product.color = color;
       product.price = price;
       product.length = length;
-      product.image = image;
+      product.frontPage = frontPage;
+      product.image = img;
+      product.imageID = imageID;
       product
         .save()
         .then(() =>

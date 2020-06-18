@@ -1,9 +1,10 @@
 import React from "react";
-import { Switch, Route, Redirect, Link } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import AdminOrders from "./adminorders";
 import AdminCustomers from "./admincustomers";
 import AdminProducts from "./adminproducts";
 import Product from "./admin-productview";
+import NewProduct from "./admin-newProduct";
 import Customer from "./admin-customerview";
 import Order from "./admin-orderview";
 
@@ -34,6 +35,7 @@ const Admin = () => {
         <Route path="/admin/customers" component={AdminCustomers} />
         <Route path="/admin/orders" component={AdminOrders} />
         <Route path="/admin/product/:id" component={Product} />
+        <Route path="/admin/newproduct" component={NewProduct} />
         <Route path="/admin/customer/:id" component={Customer} />
         <Route path="/admin/order/:id" component={Order} />
       </Switch>

@@ -4,16 +4,24 @@ const Schema = mongoose.Schema;
 
 const orderSchema = new Schema(
   {
-    productId: {
-      type: String,
-      required: true,
-    },
-    customerId: {
-      type: String,
-      required: true,
-    },
-    orderDate: {
+    date: {
       type: Date,
+      required: true,
+    },
+    customer: {
+      type: String,
+      required: true,
+    },
+    product: {
+      type: String,
+      required: true,
+    },
+    quantity: {
+      type: String,
+      required: true,
+    },
+    price: {
+      type: String,
       required: true,
     },
     status: {

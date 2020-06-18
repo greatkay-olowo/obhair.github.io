@@ -17,22 +17,30 @@ router.get("/:id", (req, res) => {
     .catch((err) => res.status(400).json("Error:" + err));
 });
 
-// POST orders
-router.post("/", (req, res) => {
-  const { productId, customerId, status } = req.body;
-  const orderDate = Date.parse(req.body.date);
-
-  const newOrder = new Order({
-    productId,
-    customerId,
-    orderDate,
-    status,
-  });
-
-  newOrder
-    .save()
-    .then(() => res.json("Order Successfully placed!"))
-    .catch((err) => res.status(400).json("Error: " + err));
+// POST orders status
+router.put("/:id", (req, res) => {
+  const { id } = req.params;
+  const { status } = req.body;
+  Order.findById(id)
+    .then((order) => {
+      order.status = status;
+      order
+        .save()
+        .then(() => {
+          res
+            .status(202)
+            .json({ Status: "success", Message: "Order Update Successfull!" });
+        })
+        .catch((err) =>
+          res.status(400).json({
+            Status: "Failed",
+            Message: `Order Update Not Successfull. Error: ${err}`,
+          })
+        );
+    })
+    .catch((err) =>
+      res.status(400).json({ Status: "Error", Message: `Error: ${err}` })
+    );
 });
 
 module.exports = router;

@@ -3,40 +3,27 @@ import axios from "axios";
 import Modal from "react-modal";
 import Alert from "../components/alert";
 
-const AdminProductView = (props) => {
-  const { id } = props.match.params;
+const AdminNewProduct = (props) => {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [name, setName] = useState();
-  const [category, setCategory] = useState();
+  const [category, setCategory] = useState("--------");
   const [color, setColor] = useState();
   const [length, setLength] = useState();
   const [price, setPrice] = useState();
-  const [frontPage, setFrontPage] = useState();
+  const [frontPage, setFrontPage] = useState("--------");
   const [img, setImg] = useState();
   const [imgID, setImgID] = useState();
   const [alert, setAlert] = useState(false);
+  const [msg, setMsg] = useState("test");
+  const [alertStatus, setAlertStatus] = useState("danger");
 
-  let alertMessage = "";
   useEffect(() => {
-    axios.get(`/product/${id}`).then((product) => {
-      const data = product.data.Message;
-      setName(data.name);
-      setCategory(data.category);
-      setColor(data.color);
-      setLength(data.length);
-      setPrice(data.price);
-      setFrontPage(data.frontPage);
-      setImg(data.image);
-      setImgID(data.imageID);
-    });
-  }, [id]);
+    setIsOpen(true);
+  }, []);
   function closeModal() {
     setIsOpen(false);
     window.location = "/admin/products";
   }
-  useEffect(() => {
-    setIsOpen(true);
-  }, []);
 
   const saveProduct = (e) => {
     e.preventDefault();
@@ -48,18 +35,22 @@ const AdminProductView = (props) => {
       length: length,
       price: price,
       frontPage: frontPage,
-      img: img,
-      imgID: imgID,
+      image: img,
+      imageID: imgID,
     };
 
-    axios.put(`/product/${id}`, data).then((res) => {
-      if (res.data.Status === "success") {
-        window.location = "/admin/products";
-      } else {
+    console.log({ data });
+
+    axios
+      .post("http://localhost:5000/product/new", data)
+      .then((res) => {
+        // setAlert(true);
         setAlert(true);
-        alertMessage = res.data.Message;
-      }
-    });
+        if (res.data.Status) setAlertStatus(res.data.Status);
+        setMsg(res.data.Message);
+        console.log({ res });
+      })
+      .catch((err) => console.error(err));
   };
 
   const customStyles = {
@@ -93,7 +84,7 @@ const AdminProductView = (props) => {
           </button>
         </div>
 
-        {alert && <Alert>{alertMessage}</Alert>}
+        {alert && <Alert status={alertStatus}>{msg}</Alert>}
         <form className="m-3">
           <label>
             <strong>Name</strong>
@@ -115,6 +106,7 @@ const AdminProductView = (props) => {
               value={category}
               onChange={(e) => setCategory(e.target.value)}
             >
+              <option value="">--------</option>
               <option value="Straight Hair">Straight Hair</option>
               <option value="Curly Hair">Curly Hair</option>
               <option value="Eye Lash">Eye Lash</option>
@@ -164,6 +156,7 @@ const AdminProductView = (props) => {
               value={frontPage}
               onChange={(e) => setFrontPage(e.target.value)}
             >
+              <option value="">-------</option>
               <option value="true">Yes</option>
               <option value="false">No</option>
             </select>
@@ -174,7 +167,6 @@ const AdminProductView = (props) => {
             <input
               type="text"
               className="form-control"
-              value={imgID}
               onChange={(e) => {
                 setImg(
                   "https://drive.google.com/uc?export=view&id=" + e.target.value
@@ -199,4 +191,4 @@ const AdminProductView = (props) => {
   );
 };
 
-export default AdminProductView;
+export default AdminNewProduct;

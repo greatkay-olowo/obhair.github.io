@@ -7,11 +7,7 @@ const SmallerProductcard = ({ item }) => {
       <Link to={`/product/${item._id}`} style={style.flexItem}>
         <div className="card" style={style.card}>
           <div className="card-img-top">
-            <img
-              src={`http://localhost:5000/image/${item.image}`}
-              alt={item.name}
-              style={style.cardImg}
-            />
+            <img src={item.image} alt={item.name} style={style.cardImg} />
           </div>
           <div className="card-body p-0 m-0">
             <hr className="m-2" />
@@ -19,14 +15,14 @@ const SmallerProductcard = ({ item }) => {
               <p style={style.productname} className="text-wrap">
                 {item.name}
               </p>
-              <p style={style.price}>${item.price}</p>
+              <p style={style.price}>&#xa3;{item.price}</p>
               <p style={style.category}>{item.category}</p>
-              <Link
+              <button
                 to={`/product/${item._id}`}
                 className="btn btn-primary btn-sm border-none mb-2"
               >
                 Buy Now
-              </Link>
+              </button>
             </div>
           </div>
         </div>

@@ -74,6 +74,7 @@ content-type: application/json
     "price": 200,
     "length": 15,
     "frontPage": true,
+    "image": "Loremafa"
 
 }
 

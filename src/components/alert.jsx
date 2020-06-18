@@ -3,7 +3,7 @@ import React from "react";
 const Alert = ({ status, children }) => {
   return (
     <div
-      class={`alert alert-${status} alert-dismissible fade show`}
+      class={`alert alert-${status} alert-dismissible fade show mt-2 mb-2`}
       role="alert"
     >
       {children}

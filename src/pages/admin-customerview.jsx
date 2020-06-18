@@ -21,7 +21,7 @@ const AdminCustomerView = () => {
       right: "50px",
       bottom: "50px",
       // marginRight: "-50%",
-      height: "400px",
+      height: "650px",
       weight: "100px",
       margin: "0 auto",
       // transform: "translate(-50%, -50%)",

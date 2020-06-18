@@ -41,7 +41,7 @@ const Product = (props) => {
             <div className="col-lg-6" style={style.imgContainer}>
               <div className="p-4">
                 <img
-                  src={`http://localhost:5000/image/${item.image}`}
+                  src={item.image}
                   alt={item.name}
                   srcSet=""
                   className="img-fluid"

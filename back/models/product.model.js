@@ -25,12 +25,12 @@ const productSchema = new Schema(
     },
 
     price: {
-      type: Number,
+      type: String,
       required: true,
     },
 
     length: {
-      type: Number,
+      type: String,
       required: true,
     },
     frontPage: {
@@ -38,6 +38,10 @@ const productSchema = new Schema(
       required: true,
     },
     image: {
+      type: String,
+      required: true,
+    },
+    imageID: {
       type: String,
       required: true,
     },

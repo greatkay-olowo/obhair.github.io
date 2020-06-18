@@ -12,7 +12,7 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 app.use(logger("dev"));
-app.use("/image", express.static("uploads"));
+// app.use("/image", express.static("uploads"));
 
 // connect to the database
 const mongoDB = process.env.ATLAS_URI;
