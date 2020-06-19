@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 // const MainApp = lazy(() => import("./pages/mainapp"));
 import MainApp from "./pages/mainapp";
 import Admin from "./pages/admin";
