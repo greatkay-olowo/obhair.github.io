@@ -5,7 +5,7 @@ import Layout from "../pages/layout";
 import "./404.css";
 
 const PageNotFound = () => {
-  let history = useHistory();
+  // let history = useHistory();
   return (
     <Layout>
       <main className="bsod container1">
