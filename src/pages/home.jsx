@@ -9,7 +9,8 @@ const Home = () => {
 
   useEffect(() => {
     axios.get("/product/home").then((data) => {
-      setProducts(data.data);
+      const a = data.data;
+      setProducts({ a });
     });
   }, []);
 
